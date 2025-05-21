@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Пользователи</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Случайные пользователи</h1>
+    <form method="post" action="/">
+        <label for="count">Показать:</label>
+        <input type="number" name="count" id="count" value="{{ count }}" min="1" max="1000">
+        <button type="submit">Показать</button>
+    </form>
+<form action="/random" method="get" style="text-align: center; margin-top: 10px;">
+    <button type="submit">Случайный пользователь</button>
+</form>
+    <table>
+        <thead>
+            <tr>
+                <th>Фото</th>
+                <th>Пол</th>
+                <th>Имя</th>
+                <th>Фамилия</th>
+                <th>Телефон</th>
+                <th>Email</th>
+                <th>Город</th>
+                <th>Страна</th>
+                <th>Подробнее</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td><img src="{{ user.picture }}" alt="Фото"></td>
+                <td>{{ user.gender }}</td>
+                <td>{{ user.first_name }}</td>
+                <td>{{ user.last_name }}</td>
+                <td>{{ user.phone }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.city }}</td>
+                <td>{{ user.country }}</td>
+                <td><a href="{{ url_for('user_detail', user_id=user.id) }}">Ссылка</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

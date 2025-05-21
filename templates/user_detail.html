@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ user.first_name }} {{ user.last_name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='user_detail.css') }}">
+</head>
+<body>
+    <div class="user-card">
+        <img src="{{ user.picture }}" alt="Фото">
+        <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+        <p><strong>Пол:</strong> {{ user.gender }}</p>
+        <p><strong>Телефон:</strong> {{ user.phone }}</p>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Город:</strong> {{ user.city }}</p>
+        <p><strong>Страна:</strong> {{ user.country }}</p>
+        <a href="/">← Назад</a>
+    </div>
+</body>
+</html>
