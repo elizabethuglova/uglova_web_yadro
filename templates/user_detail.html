@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ user.first_name }} {{ user.last_name }}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='user_detail.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_user_detail.css') }}">
 </head>
 <body>
     <div class="user-card">
@@ -14,7 +14,7 @@
         <p><strong>Email:</strong> {{ user.email }}</p>
         <p><strong>Город:</strong> {{ user.city }}</p>
         <p><strong>Страна:</strong> {{ user.country }}</p>
-        <a href="/">← Назад</a>
+        <a href="/">Назад</a>
     </div>
 </body>
 </html>
