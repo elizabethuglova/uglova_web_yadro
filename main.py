@@ -10,6 +10,7 @@ app.secret_key = 'some'
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 
+# основная страница
 @app.route("/", methods=["GET", "POST"])
 def index():
     count = request.form.get("count", 50)
@@ -23,6 +24,7 @@ def index():
     return render_template("index.html", users=users, count=count)
 
 
+# загрузка 1000 пользователей с API
 def load_initial_users():
     db = db_session.create_session()
     if db.query(RandomUser).first():
@@ -47,7 +49,7 @@ def load_initial_users():
         db.add(person)
     db.commit()
 
-
+# страница конкретного пользователя
 @app.route("/user/<int:user_id>")
 def user_detail(user_id):
     db = db_session.create_session()
@@ -57,6 +59,7 @@ def user_detail(user_id):
     return render_template("user_detail.html", user=user)
 
 
+# страница рандомного пользователя
 @app.route("/random")
 def random_user():
     db = db_session.create_session()

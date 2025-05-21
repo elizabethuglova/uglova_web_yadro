@@ -1,6 +1,7 @@
 from sqlalchemy import Column, Integer, String
 from data.db_session import SqlAlchemyBase
 
+# таблица пользователей
 class RandomUser(SqlAlchemyBase):
     __tablename__ = "random_users"
     id = Column(Integer, primary_key=True, autoincrement=True)
